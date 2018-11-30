@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package protobuf;
+
+option java_package = "com.joyxj.protobuf";
+
+option java_outer_classname = "DataInfo";
+
+message Student {
+
+    required string name = 1;
+    optional int32 age = 2;
+    optional string email = 3;
+
+}
