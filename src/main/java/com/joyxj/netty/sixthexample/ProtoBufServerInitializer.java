@@ -17,7 +17,7 @@ public class ProtoBufServerInitializer extends ChannelInitializer<SocketChannel>
 
         //增加protobuf的4个处理器，注意顺序
         pipeline.addLast(new ProtobufVarint32FrameDecoder());
-        pipeline.addLast(new ProtobufDecoder(DataInfo.Student.getDefaultInstance())); //解码
+        pipeline.addLast(new ProtobufDecoder(DataInfo.Message.getDefaultInstance())); //解码
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast(new ProtobufEncoder());
 

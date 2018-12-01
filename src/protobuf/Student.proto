@@ -6,10 +6,37 @@ option java_package = "com.joyxj.protobuf";
 
 option java_outer_classname = "DataInfo";
 
+message Message {
+
+    enum MessageType {
+        Student = 1;
+        Teacher = 2;
+        Course = 3;
+    }
+
+    required MessageType messageType = 1;
+
+    oneof  oneof_name {
+        Student student = 2;
+        Teacher teacher = 3;
+        Course course = 4;
+    }
+}
+
 message Student {
 
-    required string name = 1;
+    optional string name = 1;
     optional int32 age = 2;
     optional string email = 3;
 
+}
+
+message Teacher {
+    optional string name = 1;
+    optional string email = 2;
+}
+
+message Course {
+    optional string name = 1;
+    optional int32  score = 2;
 }
