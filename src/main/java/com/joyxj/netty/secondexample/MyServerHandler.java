@@ -2,7 +2,6 @@ package com.joyxj.netty.secondexample;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import sun.util.resources.LocaleData;
 
 import java.util.UUID;
 
