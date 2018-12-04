@@ -16,7 +16,8 @@ public class GrpcServer {
 
     private void start() throws IOException {
         int port = 50051;
-        server = ServerBuilder.forPort(port).addService(new StudentServiceImpl()).build().start();
+        server = ServerBuilder.forPort(port).addService(new StudentServiceImpl())
+                .build().start();
         System.out.println("server started,listen port is " + port);
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override

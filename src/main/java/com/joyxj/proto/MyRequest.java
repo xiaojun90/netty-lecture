@@ -70,12 +70,12 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.joyxj.proto.StudentProto.internal_static_com_joyxj_proto_MyRequest_descriptor;
+    return StudentProto.internal_static_com_joyxj_proto_MyRequest_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.joyxj.proto.StudentProto.internal_static_com_joyxj_proto_MyRequest_fieldAccessorTable
+    return StudentProto.internal_static_com_joyxj_proto_MyRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             MyRequest.class, Builder.class);
   }
@@ -270,15 +270,15 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.joyxj.proto.MyRequest)
-      com.joyxj.proto.MyRequestOrBuilder {
+      MyRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.joyxj.proto.StudentProto.internal_static_com_joyxj_proto_MyRequest_descriptor;
+      return StudentProto.internal_static_com_joyxj_proto_MyRequest_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.joyxj.proto.StudentProto.internal_static_com_joyxj_proto_MyRequest_fieldAccessorTable
+      return StudentProto.internal_static_com_joyxj_proto_MyRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               MyRequest.class, Builder.class);
     }
@@ -307,7 +307,7 @@ private static final long serialVersionUID = 0L;
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.joyxj.proto.StudentProto.internal_static_com_joyxj_proto_MyRequest_descriptor;
+      return StudentProto.internal_static_com_joyxj_proto_MyRequest_descriptor;
     }
 
     public MyRequest getDefaultInstanceForType() {

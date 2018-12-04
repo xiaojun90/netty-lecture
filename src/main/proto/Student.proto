@@ -10,7 +10,14 @@ option java_multiple_files = true;
 
 service StudentService {
 
-    rpc GetRealNameByUserName (MyRequest) returns (MyResponse);
+    rpc GetRealNameByUserName (MyRequest) returns (MyResponse) {};
+
+    //rpc GetStudentsByAge(int32) returns (StudentResponse); //grpc中service中的方法参数和返回值只能是message,所以这条语句会报错
+
+    rpc GetStudentsByAge(StudentRequest) returns (stream StudentResponse) {} //返回流式的结果
+
+    rpc GetStudentWrapperByAges(stream StudentRequest) returns (StudentListResponse) {}
+
 }
 
 message MyRequest {
@@ -19,6 +26,20 @@ message MyRequest {
 
 message MyResponse {
     string realname = 1;
+}
+
+message StudentRequest {
+    int32 age = 1;
+}
+
+message StudentResponse {
+    string name = 1;
+    int32 age = 2;
+    string city = 3;
+}
+
+message StudentListResponse {
+    repeated StudentResponse studentResonse = 1;
 }
 
 
