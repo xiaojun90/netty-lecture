@@ -5,8 +5,8 @@ import io.grpc.stub.StreamObserver;
 
 /**
  * Student Service实现类
- * @author: xiaojun
- * @version: 2018/12/4
+ * @author xiaojun
+ * @version 2018/12/4
  */
 public class StudentServiceImpl extends StudentServiceGrpc.StudentServiceImplBase {
 
@@ -59,6 +59,30 @@ public class StudentServiceImpl extends StudentServiceGrpc.StudentServiceImplBas
                         .addStudentResonse(response4)
                         .build();
                 responseObserver.onNext(studentListResponse);
+                responseObserver.onCompleted();
+            }
+        };
+    }
+
+    @Override
+    public StreamObserver<MyRequest> biTalk(StreamObserver<MyResponse> responseObserver) {
+        return new StreamObserver<MyRequest>() {
+            @Override
+            public void onNext(MyRequest myRequest) {
+                System.out.println("onNext value:" + myRequest.getUsername());
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                System.out.println("error");
+            }
+
+            @Override
+            public void onCompleted() {
+                responseObserver.onNext(MyResponse.newBuilder().setRealname("张三").build());
+                responseObserver.onNext(MyResponse.newBuilder().setRealname("李四").build());
+                responseObserver.onNext(MyResponse.newBuilder().setRealname("王五").build());
+                responseObserver.onNext(MyResponse.newBuilder().setRealname("赵六").build());
                 responseObserver.onCompleted();
             }
         };

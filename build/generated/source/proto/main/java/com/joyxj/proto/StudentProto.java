@@ -54,7 +54,7 @@ public final class StudentProto {
       "\030\001 \001(\005\":\n\017StudentResponse\022\014\n\004name\030\001 \001(\t\022" +
       "\013\n\003age\030\002 \001(\005\022\014\n\004city\030\003 \001(\t\"O\n\023StudentLis" +
       "tResponse\0228\n\016studentResonse\030\001 \003(\0132 .com." +
-      "joyxj.proto.StudentResponse2\245\002\n\016StudentS" +
+      "joyxj.proto.StudentResponse2\356\002\n\016StudentS" +
       "ervice\022R\n\025GetRealNameByUserName\022\032.com.jo" +
       "yxj.proto.MyRequest\032\033.com.joyxj.proto.My" +
       "Response\"\000\022Y\n\020GetStudentsByAge\022\037.com.joy" +
@@ -62,8 +62,9 @@ public final class StudentProto {
       "o.StudentResponse\"\0000\001\022d\n\027GetStudentWrapp" +
       "erByAges\022\037.com.joyxj.proto.StudentReques" +
       "t\032$.com.joyxj.proto.StudentListResponse\"" +
-      "\000(\001B!\n\017com.joyxj.protoB\014StudentProtoP\001b\006" +
-      "proto3"
+      "\000(\001\022G\n\006BiTalk\022\032.com.joyxj.proto.MyReques" +
+      "t\032\033.com.joyxj.proto.MyResponse\"\000(\0010\001B!\n\017" +
+      "com.joyxj.protoB\014StudentProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

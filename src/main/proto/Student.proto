@@ -18,6 +18,8 @@ service StudentService {
 
     rpc GetStudentWrapperByAges(stream StudentRequest) returns (StudentListResponse) {}
 
+    rpc BiTalk(stream MyRequest) returns (stream MyResponse) {}
+
 }
 
 message MyRequest {

@@ -46,6 +46,7 @@ public class GrpcClient {
             client.getRealNameByUserName("zhangsan");
             client.getStudentsByAge(28);
             client.getStudentWrapperByAges();
+            client.biTalk();
         } finally {
             client.shutdown();
         }
@@ -103,5 +104,36 @@ public class GrpcClient {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void biTalk() {
+        StreamObserver<MyResponse> myResponseStreamObserver = new StreamObserver<MyResponse>() {
+            @Override
+            public void onNext(MyResponse myResponse) {
+                System.out.println("服务器端返回值：" + myResponse.getRealname());
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCompleted() {
+
+            }
+        };
+        StreamObserver<MyRequest> myRequestStreamObserver = stub.biTalk(myResponseStreamObserver);
+        myRequestStreamObserver.onNext(MyRequest.newBuilder().setUsername("zhangsan").build());
+        myRequestStreamObserver.onNext(MyRequest.newBuilder().setUsername("lisi").build());
+        myRequestStreamObserver.onNext(MyRequest.newBuilder().setUsername("wangwu").build());
+        myRequestStreamObserver.onNext(MyRequest.newBuilder().setUsername("zhaoliu").build());
+        myRequestStreamObserver.onCompleted();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }

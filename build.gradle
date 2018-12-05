@@ -39,6 +39,7 @@ buildscript {
 }
 
 protobuf {
+    generatedFilesBaseDir = "src"  //设置proto生成文件路径，默认为$buildDir/generated/source/proto
     protoc {
         artifact = "com.google.protobuf:protoc:3.5.1-1"
     }
@@ -49,7 +50,9 @@ protobuf {
     }
     generateProtoTasks {
         all()*.plugins {
-            grpc {}
+            grpc {
+                outputSubDir = 'java' //设置grpc生成文件路径
+            }
         }
     }
 }
