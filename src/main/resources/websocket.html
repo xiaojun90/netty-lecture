@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function(){
+            var ws = new WebSocket("ws://localhost:8899/ws");
+            ws.onopen = function (ev) {
+                $("#messageList").val("服务器已连接");
+            }
+            $("#sendBtn").click(function () {
+                ws.send($("#message").val());
+                $("#messageList").val($("#messageList").val() + "\n" + $("#message").val());
+                $("#message").val("");
+            });
+            ws.onmessage = function (ev) {
+                $("#messageList").val($("#messageList").val() + "\n" + ev.data);
+            }
+            ws.onclose = function (ev) {
+                $("#messageList").val($("#messageList").val() + "\n" + "连接关闭");
+            }
+        });
+    </script>
+    <style>
+        .message {
+            width: 500px;
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <div class="form-group">
+            <textarea class="form-control" style="height: 500px" id="messageList"></textarea>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="输入消息" id="message"/>
+            <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" id="sendBtn">发送</button>
+      </span>
+        </div>
+    </div>
+</body>
+</html>
