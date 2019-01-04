@@ -10,8 +10,8 @@ import io.netty.handler.logging.LoggingHandler;
 
 /**
  * websocket服务器端
- * @author: xiaojun
- * @version: 2018/12/7
+ * @author xiaojun
+ * @version 2018/12/7yt
  */
 public class WebSocketServer {
 
