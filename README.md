@@ -13,3 +13,5 @@ netty心跳使用，解决服务器与客户端断开连接问题
 netty与websocket的使用
 ### sixthexample
 netty与protobuf的整合使用
+### seventhexample
+netty 心跳和自动重连策略
