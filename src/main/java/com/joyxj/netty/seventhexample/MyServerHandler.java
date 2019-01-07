@@ -11,12 +11,12 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-
-        System.out.println(msg);
+        System.out.println("server channelRead..");
+        System.out.println(ctx.channel().remoteAddress() + "->Server :" + msg);
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("客户端:" + ctx.channel().remoteAddress() + "上线");
+        //System.out.println("客户端:" + ctx.channel().remoteAddress() + "上线");
     }
 }

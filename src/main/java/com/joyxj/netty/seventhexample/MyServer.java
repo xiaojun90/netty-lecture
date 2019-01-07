@@ -1,16 +1,19 @@
 package com.joyxj.netty.seventhexample;
 
-import com.joyxj.netty.thirdexample.MyChatServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import io.netty.handler.codec.Delimiters;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.CharsetUtil;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author xiaojun
@@ -28,7 +31,9 @@ public class MyServer {
                 @Override
                 protected void initChannel(SocketChannel ch)  {
                     ChannelPipeline pipeline = ch.pipeline();
-                    pipeline.addLast(new DelimiterBasedFrameDecoder(4096, Delimiters.lineDelimiter()));
+                    //pipeline.addLast(new DelimiterBasedFrameDecoder(4096, Delimiters.lineDelimiter()));
+                    pipeline.addLast(new IdleStateHandler(60,0,0, TimeUnit.SECONDS));
+                    pipeline.addLast(new AcceptorIdleStateTrigger());
                     pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
                     pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
                     pipeline.addLast(new MyServerHandler());
