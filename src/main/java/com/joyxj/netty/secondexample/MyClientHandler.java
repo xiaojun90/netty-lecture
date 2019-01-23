@@ -3,6 +3,13 @@ package com.joyxj.netty.secondexample;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+/**
+ * client handler
+ *
+ * @author xiaoj
+ * @since 1.0
+ * @date 2019-01-23
+ */
 public class MyClientHandler extends SimpleChannelInboundHandler<String> {
 
     @Override

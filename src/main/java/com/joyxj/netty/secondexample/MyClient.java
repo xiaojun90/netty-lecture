@@ -7,6 +7,11 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
 
+/**
+ * @author xiaoj
+ * @since 1.0
+ * @date 2019-01-23
+ */
 public class MyClient {
 
     public static void main(String[] args) throws InterruptedException {
@@ -25,7 +30,5 @@ public class MyClient {
         } finally {
             eventLoopGroup.shutdownGracefully();
         }
-
-
     }
 }

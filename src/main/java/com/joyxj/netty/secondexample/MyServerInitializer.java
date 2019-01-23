@@ -10,6 +10,11 @@ import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
 
 
+/**
+ * @author xiaoj
+ * @since 1.0
+ * @date 2019-01-23
+ */
 public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {

@@ -7,6 +7,10 @@ import java.util.UUID;
 
 /**
  * 服务端处理
+ *
+ * @author xiaoj
+ * @since 1.0
+ * @date 2019-01-23
  */
 public class MyServerHandler extends SimpleChannelInboundHandler<String>{
 

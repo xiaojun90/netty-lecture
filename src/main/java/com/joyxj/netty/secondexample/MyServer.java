@@ -8,6 +8,10 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * netty的socket
+ *
+ * @author xiaoj
+ * @since 1.0
+ * @date 2019-01-23
  */
 public class MyServer {
 
@@ -19,7 +23,6 @@ public class MyServer {
             bootstrap.group(bossGroup,workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new MyServerInitializer());
-            System.out.println("服务端启动....");
             ChannelFuture channelFuture = bootstrap.bind(8899).sync();
             channelFuture.channel().closeFuture().sync();
         } finally {
